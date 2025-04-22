@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>To-Do</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="title-bar">
+    <div class="title">To-Do</div>
+    <div class="window-controls">
+      <button id="minimize">−</button>
+      <button id="maximize">□</button>
+      <button id="close">×</button>
+    </div>
+  </div>
+  
+  <div class="container">
+    <!-- Date navigation bar -->
+    <div class="date-nav">
+      <button id="prev-day" class="nav-btn"><i class="fas fa-chevron-left"></i></button>
+      <div class="date-display" id="current-date">
+        <span id="date-text">Today, April 20, 2025</span>
+        <button id="calendar-btn"><i class="fas fa-calendar-alt"></i></button>
+      </div>
+      <button id="next-day" class="nav-btn"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <!-- Calendar picker (hidden by default) -->
+    <div class="calendar-picker" id="calendar-picker">
+      <div class="calendar-header">
+        <button id="prev-month"><i class="fas fa-chevron-left"></i></button>
+        <div id="month-display">April 2025</div>
+        <button id="next-month"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      <div class="weekdays">
+        <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+      </div>
+      <div class="days" id="calendar-days">
+        <!-- Days will be generated with JavaScript -->
+      </div>
+      <div class="calendar-footer">
+        <button id="calendar-today">Today</button>
+        <button id="calendar-close">Close</button>
+      </div>
+    </div>
+    
+    <!-- Pending Tasks Section -->
+    <div class="section-header">
+      <h2>Tasks</h2>
+    </div>
+    <div class="module-grid" id="module-grid">
+      <!-- Add Module Button -->
+      <div class="module add-module" id="add-module">
+        <div class="add-icon">+</div>
+        <div class="add-text">Add Module</div>
+      </div>
+      
+      <!-- Task modules will be added here dynamically -->
+    </div>
+    
+    <!-- Completed Tasks Section -->
+    <div class="section-header completed-header">
+      <h2>Completed Tasks</h2>
+      <button id="toggle-completed" class="toggle-btn"><i class="fas fa-chevron-down"></i></button>
+    </div>
+    <div class="module-grid" id="completed-grid">
+      <!-- Completed tasks will be added here -->
+    </div>
+  </div>
+  
+  <!-- Modal for adding new tasks -->
+  <div class="modal" id="task-modal">
+    <div class="modal-content">
+      <h2>Add New Task</h2>
+      <div class="form-group">
+        <label>Title</label>
+        <input type="text" id="task-title" placeholder="Task title">
+      </div>
+      <div class="form-group">
+        <label>Summary</label>
+        <textarea id="task-summary" placeholder="Task description" rows="3"></textarea>
+      </div>
+      <div class="form-group">
+        <label>Time</label>
+        <input type="time" id="task-time">
+      </div>
+      <div class="form-group">
+        <label class="checkbox-container">
+          <input type="checkbox" id="task-rollover">
+          <span class="checkmark"></span>
+          Roll over to next day if not completed
+        </label>
+      </div>
+      <div class="form-buttons">
+        <button id="cancel-task">Cancel</button>
+        <button id="add-task">Add Task</button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="renderer.js"></script>
+</body>
+</html>
