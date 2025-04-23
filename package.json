@@ -1,33 +1,45 @@
 {
-    "name": "todo-desktop-app",
-    "version": "1.0.0",
-    "description": "A simple To-Do desktop application",
-    "main": "main.js",
-    "scripts": {
-      "start": "electron .",
-      "pack": "electron-builder --dir",
-      "dist": "electron-builder --win portable"
+  "name": "todo-desktop-app",
+  "version": "1.0.0",
+  "description": "A simple To-Do desktop application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "keywords": [
+    "todo",
+    "electron",
+    "desktop",
+    "productivity",
+    "adhd"
+  ],
+  "author": "",
+  "license": "MIT",
+  "build": {
+    "appId": "com.yourname.todo",
+    "productName": "To-Do",
+    "directories": {
+      "output": "dist"
     },
-    "keywords": [
-      "todo",
-      "electron",
-      "desktop",
-      "productivity"
-    ],
-    "author": "",
-    "license": "MIT",
-    "build": {
-      "appId": "com.yourname.todo",
-      "productName": "To-Do",
-      "directories": {
-        "output": "dist"
-      }
+    "win": {
+      "target": "portable",
+      "icon": "public/icon.png"
     },
-    "devDependencies": {
-      "electron": "^29.0.0",
-      "electron-builder": "^24.6.4"
+    "mac": {
+      "icon": "public/icon.png"
     },
-    "dependencies": {
-      "@fortawesome/fontawesome-free": "^6.4.0"
-    }
+    "linux": {
+      "icon": "public/icon.png"
+    },
+    "forceCodeSigning": false
+  },
+  "devDependencies": {
+    "electron": "^29.0.0",
+    "electron-builder": "^24.6.4"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.4.0"
   }
+}

@@ -1,9 +1,6 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 
-// Add this to ensure app icon is set properly
-app.setAppUserModelId(process.execPath);
-
 // Keep a global reference of the window object
 let mainWindow;
 
@@ -12,7 +9,7 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 900,
     height: 600,
-    icon: path.join(__dirname, 'public/icon.png'),
+    icon: path.join(__dirname, 'public/icon.png'), // Set the icon path
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false
